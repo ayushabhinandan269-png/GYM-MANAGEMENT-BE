@@ -1,4 +1,7 @@
 🏋️ Gym Management System – Backend
+
+LIVE LINK - https://gym-management-be-1.onrender.com/
+
 1. 📌 Backend Overview
 
 The backend of this Gym Management System is built with a scalable and modular architecture using Node.js and TypeScript. It handles all core operations such as authentication, member and trainer management, workout assignments, and real-time activity tracking.

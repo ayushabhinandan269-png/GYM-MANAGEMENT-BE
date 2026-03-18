@@ -1,139 +1,130 @@
-🏋️ Gym Management System – Frontend--------------------------------------------------------
+🏋️ Gym Management System – Backend
 
-A modern Gym Management System frontend built using React + TypeScript, designed for managing members, trainers, workouts, and plans with a clean and scalable architecture.
+LIVE LINK - https://gym-management-be-1.onrender.com/
 
-🚀 Features
-👨‍💼 Admin Features-----------------------------------------------------------
+1. 📌 Backend Overview
 
-Manage Members (Add, Update, Delete)
+The backend of this Gym Management System is built with a scalable and modular architecture using Node.js and TypeScript. It handles all core operations such as authentication, member and trainer management, workout assignments, and real-time activity tracking.
 
-Manage Trainers
+It follows a clean separation of concerns with controllers, models, routes, and middleware, making it easy to maintain and extend. The system also supports real-time communication using Socket.IO, enabling live updates such as activity logs and system events.
 
-Create & Manage Membership Plans
+Security is ensured through JWT-based authentication and role-based access control, allowing different permissions for admins and members.
+
+2. 🚀 Features
+
+Admin Functionalities
+
+Manage Members, Trainers, and Plans
 
 Assign Workouts to Members
 
-Dashboard with insights & activity feed
+Access Dashboard Analytics
 
-🧑‍💻 Member Features
+Monitor system activities
 
-View Personal Dashboard
+Member Functionalities
 
-Today's Workout Plan
+Secure Authentication & Profile Management
+
+View Assigned Workouts
 
 Track Workout Progress
 
-View Membership Plans
+Access Nutrition Plans
 
-Nutrition Guidance
+Core Backend Features
 
-Profile Management
+RESTful API Architecture
 
-⚙️ Core Functionalities--------------------------------------------------------------
+JWT Authentication & Authorization
 
-Authentication & Protected Routes
+Role-Based Access Control (RBAC)
 
-Role-based Access (Admin / Member)
+Real-time updates using Socket.IO
 
-Activity Logging System
+Centralized Error Handling
 
-API Integration with Backend
+Request Validation System
 
-Reusable Components & Modular Design
+3. 🏗️ Tech Stack
 
-🏗️ Tech Stack
+Node.js
 
-⚛️ React (Vite)
+Express.js
 
-🟦 TypeScript
+TypeScript
 
-🎨 CSS (Custom Styling)
+MongoDB (Mongoose)
 
-🔄 Axios (API Calls)
+JWT Authentication
 
-🧠 Context API + Redux Toolkit
+Socket.IO
 
-🔐 JWT Authentication
+dotenv
 
+4. 📁 Folder Structure
 
-src/
+backend/
 │
-├── api/                # API service layer (Axios calls)
-│   ├── authAPI.ts
-│   ├── memberAPI.ts
-│   ├── trainerAPI.ts
-│   ├── planAPI.ts
-│   ├── workoutAPI.ts
-│   └── nutritionAPI.ts
-│
-├── components/         # Reusable UI components
-│   ├── Navbar.tsx
-│   ├── PlanCard.tsx
-│   ├── ProtectedRoute.tsx
-│   ├── ActivityFeed.tsx
-│   ├── WeeklySummary.tsx
-│   ├── WorkoutChart.tsx
-│   └── WorkoutProgress.tsx
-│
-├── context/            # Global state using Context API
-│   ├── AuthContext.tsx
-│   └── ActivityContext.tsx
-│
-├── features/           # Feature-based modules
-│   ├── admin/
-│   │   ├── AdminDashboard.tsx
-│   │   ├── ManageMembers.tsx
-│   │   ├── ManageTrainers.tsx
-│   │   ├── ManagePlans.tsx
-│   │   └── ManageWorkouts.tsx
+├── src/
+│   ├── config/                # DB & app configuration
+│   │   └── db.ts
 │   │
-│   └── member/
-│       ├── MemberDashboard.tsx
-│       ├── MyPlan.tsx
-│       ├── NutritionPage.tsx
-│       ├── Profile.tsx
-│       └── WorkoutsPage.tsx
+│   ├── controllers/           # Business logic
+│   │   ├── adminController.ts
+│   │   ├── authController.ts
+│   │   ├── dashboardController.ts
+│   │   ├── memberController.ts
+│   │   ├── membershipController.ts
+│   │   ├── nutritionController.ts
+│   │   ├── planController.ts
+│   │   ├── progressController.ts
+│   │   ├── trainerController.ts
+│   │   └── workoutController.ts
+│   │
+│   ├── middleware/            # Custom middlewares
+│   │   ├── authMiddleware.ts
+│   │   ├── roleMiddleware.ts
+│   │   ├── errorHandler.ts
+│   │   └── validate.ts
+│   │
+│   ├── models/                # Mongoose models
+│   │   ├── User.ts
+│   │   ├── Trainer.ts
+│   │   ├── Plan.ts
+│   │   ├── Membership.ts
+│   │   ├── Workout.ts
+│   │   ├── WorkoutProgress.ts
+│   │   └── Nutrition.ts
+│   │
+│   ├── routes/                # API routes
+│   │   ├── authRoutes.ts
+│   │   ├── adminRoutes.ts
+│   │   ├── dashboardRoutes.ts
+│   │   ├── memberRoutes.ts
+│   │   ├── membershipRoutes.ts
+│   │   ├── nutritionRoutes.ts
+│   │   ├── planRoutes.ts
+│   │   ├── progressRoutes.ts
+│   │   ├── trainerRoutes.ts
+│   │   └── workoutRoutes.ts
+│   │
+│   ├── validators/            # Request validation logic
+│   │   └── memberValidator.ts
+│   │
+│   ├── app.ts                 # Express app setup
+│   └── server.ts              # Server entry point
 │
-├── hooks/              # Custom hooks
-│   ├── useActivity.ts
-│   └── useSocket.ts
-│
-├── layouts/            # Layout components
-│   ├── MainLayout.tsx
-│   └── DashboardLayout.tsx
-│
-├── pages/              # Route-level pages
-│   ├── Home.tsx
-│   ├── Login.tsx
-│   ├── Register.tsx
-│   ├── Plans.tsx
-│   └── PlanPreview.tsx
-│
-├── redux/              # Redux store
-│   ├── store.ts
-│   └── slices/authSlice.ts
-│
-├── routes/             # Routing configuration
-│   ├── AppRoutes.tsx
-│   └── RoleRoute.tsx
-│
-├── types/              # TypeScript types
-│   └── member.ts
-│
-├── utils/              # Utility functions
-│   ├── activityLogger.ts
-│   └── pageTracker.ts
-│
-├── App.tsx
-├── main.tsx
-└── index.css
+├── .env
+├── package.json
+├── tsconfig.json
+└── .gitignore
 
-
-# Clone the repo
+# Clone the repository
 git clone https://github.com/your-username/gym-management-system.git
 
-# Navigate to frontend
-cd gym-management-system-frontend/frontend
+# Navigate to backend
+cd gym-management-system/backend
 
 # Install dependencies
 npm install
@@ -141,46 +132,48 @@ npm install
 # Start development server
 npm run dev
 
-🔐 Authentication Flow---------------------
+
+
+6. 🔐 Authentication & Authorization
 
 JWT-based authentication
 
-Token stored securely (localStorage/context)
+Token validation using authMiddleware
 
-Protected routes using ProtectedRoute.tsx
+Role-based access using roleMiddleware
 
-Role-based routing with RoleRoute.tsx
+Protected routes for Admin and Member
 
-📊 Activity Logging------------------------
+7. 🔌 Real-time Features
 
-The system tracks key actions:
+Socket.IO integrated
 
-Trainer created
+Real-time updates for activities
 
-Plan added
+Client connection tracking
 
-Workout assigned
+Useful for notifications and live updates
 
-Member activity
+8. ⚠️ Error Handling & Validation
 
-Handled via:
+Centralized error handling using errorHandler middleware
 
-utils/activityLogger.ts
-context/ActivityContext.tsx
-📈 Future Improvements----------------------
+Request validation using validators
 
-AI-based workout recommendations
+Clean API responses with proper status codes
 
-Real-time notifications (WebSockets)
+9. 📈 Future Improvements
+
+AI-based workout & diet recommendations
+
+Payment gateway integration
 
 Advanced analytics dashboard
 
-Mobile responsive enhancements
+Email/SMS notifications
 
-🤝 Contributing-------------------------
+Multi-gym support
 
-Feel free to fork this repo and contribute 🚀
+10. 📜 License
 
-📜 License--------------------------------
-
-This project is licensed under the MIT License.
+This project is licensed under the MIT License
