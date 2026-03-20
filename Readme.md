@@ -172,7 +172,6 @@ Advanced analytics dashboard
 
 Email/SMS notifications
 
-Multi-gym support
 
 10. 📜 License
 
